@@ -7,8 +7,8 @@
             $email = htmlspecialchars(trim($email));
             $pass1 = htmlspecialchars(trim($pass1));
             $pass2 = htmlspecialchars(trim($pass2));
-            require_once("models/membre_model.php");
             if ($nom != "" && $prenom != "" && $pseudo != "" && $email != "" && $pass1 != "" && $pass2 != ""){
+                require_once("models/membre_model.php");
                 $mm = new membre_model();
                 if ($mm->verifyPseudo($pseudo) == 0){
                     if ($mm->verifyEmail($email) == 0){
@@ -28,6 +28,20 @@
                 }
             } else {
                 header("location:index.php?action=register&retour=vide");
+            }
+        }
+
+        public function connecter($pseudo, $pass){
+            $pseudo = htmlspecialchars(trim($pseudo));
+            $pass = htmlspecialchars(trim($pass));
+
+            if ($pseudo != "" && $pass != ""){
+                require_once("models/membre_model.php");
+                $mm = new membre_model();
+                
+                if ($mm->verifyPseudo($pseudo)){
+                    echo var_dump($mm->getPseudo(($pseudo)));
+                }
             }
         }
     }

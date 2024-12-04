@@ -3,7 +3,7 @@ class membre_model{
     private $bd;
     public function __construct(){
         try {
-            $this->bd = new PDO("mysql:host=localhost;port=3307;dbname=tatasiaka", "root", "");
+            $this->bd = new PDO("mysql:host=localhost;dbname=tatasiaka", "root", "");
         } catch (Exception $e) {
             die("Erreur de connexion au serveur: " . $e->getMessage());
         }
@@ -36,9 +36,24 @@ class membre_model{
         return $req->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function selectOne($pseudo){
+        $req = $this->bd->prepare("SELECT * FROM membre WHERE pseudo=?");
+        $req->execute([$pseudo]);
+        return $req->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function updateInfo($nom, $prenom, $pseudo, $email, $id){
         $req = $this->bd->prepare("UPDATE membre SET nom=?, prenom=?, pseudo=?, email=? WHERE idMembre=?");
         $req->execute([$nom, $prenom, $pseudo, $email, $id]);
     }
+
+
+    // All methods used for the login authentification
+    public function getPseudo($pseudo){
+        $req = $this->bd->prepare("SELECT * FROM membre WHERE pseudo=?");
+        $req->execute([$pseudo]);
+        return $req->fetchAll(PDO::FETCH_OBJ);
+    }
 }
+
 ?>

@@ -4,6 +4,13 @@
         if ($_GET["action"] == "login"){
             include("views/login-view.php");
         } 
+        else if ($_GET["action"] == "login-membre"){
+            if (isset($_GET["btnLogin"])){
+                require_once("controllers/membre.php");
+                $m = new membre();
+                $m->connecter($_POST["pseudo"],$_POST["pass"]);
+            }
+        }
         else if ($_GET["action"] == "register"){
             include("views/register-view.php");
         } 
@@ -27,7 +34,14 @@
             header("location:index.php");
         }
         else if ($_GET["action"] == "list"){
+            require_once("models/membre_model.php");
+            $mm = new membre_model();
             include("views/list-view.php");
+        }
+        else if ($_GET["action"] == "profil"){
+            require_once("models/membre_model.php");
+            $mm = new membre_model();
+            include("views/profil-view.php");
         }
     } else {
         include("views/home-view.php");

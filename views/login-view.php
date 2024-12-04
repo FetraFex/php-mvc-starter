@@ -10,20 +10,20 @@
 
 <body>
     <div class="container">
-        <form action="/action_page.php" method="post">
+        <form action="index.php?action=login-membre" method="post">
             <h1>Connexion</h1>
             <div class="form-group">
-                <label for="email">Votre adresse email</label>
-                <input type="email" class="form-control" id="email">
+                <label for="pseudo">Votre pseudo</label>
+                <input type="text" class="form-control" id="email" name="pseudp">
             </div>
             <div class="form-group">
                 <label for="pwd">Votre mot de passe</label>
-                <input type="password" class="form-control" id="pwd">
+                <input type="password" class="form-control" id="pwd" name="pass"> 
             </div>
             <div class="checkbox">
                 <label><input type="checkbox"> Remember me</label>
             </div>
-            <button type="submit" class="btn btn-default">Se Connecter</button>
+            <button type="submit" class="btn btn-default" name="btnLogin">Se Connecter</button>
         </form>
     </div>
 </body>

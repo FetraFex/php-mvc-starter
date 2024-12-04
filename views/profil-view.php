@@ -29,17 +29,10 @@
     </nav>
     <div class="container">
         <div class="row">
+            <h1>Profil</h1>
             <?php 
-                $data = $mm->selectAll();
-                foreach ($data as $d) {
-                    echo "<div class='col-lg-2'>
-                <img src='' alt='' class='img img-responsive'>
-                <h3>".$d->pseudo."</h3>
-                <a href='index.php?action=profil&pseudo=".$d->pseudo."'>Voir profil</a>
-            </div>";
-                }
+                var_dump($mm->selectOne($_GET["pseudo"]));
             ?>
-            
         </div>
     </div>
     <script src="publics/js/bootstrap.js"></script>
