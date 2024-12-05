@@ -14,7 +14,7 @@
             <h1>Connexion</h1>
             <div class="form-group">
                 <label for="pseudo">Votre pseudo</label>
-                <input type="text" class="form-control" id="email" name="pseudp">
+                <input type="text" class="form-control" id="email" name="pseudo">
             </div>
             <div class="form-group">
                 <label for="pwd">Votre mot de passe</label>

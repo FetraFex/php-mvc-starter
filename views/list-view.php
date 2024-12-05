@@ -15,7 +15,6 @@
                 <a class="navbar-brand" href="#">Tatasiaka</a>
             </div>
             <ul class="nav navbar-nav">
-                <li ><a href="#">Home</a></li>
                 <li><a href="#">Accueil</a></li>
                 <li class="active"><a href="index.php?action=list">Membre</a></li>
                 <li><a href="#">Publication</a></li>
@@ -33,7 +32,7 @@
                 $data = $mm->selectAll();
                 foreach ($data as $d) {
                     echo "<div class='col-lg-2'>
-                <img src='' alt='' class='img img-responsive'>
+                <img src='publics/image/default-profile.png' alt='' class='img img-responsive'>
                 <h3>".$d->pseudo."</h3>
                 <a href='index.php?action=profil&pseudo=".$d->pseudo."'>Voir profil</a>
             </div>";

@@ -42,18 +42,17 @@ class membre_model{
         return $req->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function updateInfo($nom, $prenom, $pseudo, $email, $id){
-        $req = $this->bd->prepare("UPDATE membre SET nom=?, prenom=?, pseudo=?, email=? WHERE idMembre=?");
-        $req->execute([$nom, $prenom, $pseudo, $email, $id]);
+    // Update Methods
+    public function updateInfo($nom, $prenom, $pseudo, $id){
+        $req = $this->bd->prepare("UPDATE membre SET nom=?, prenom=?, pseudo=? WHERE idMembre=?");
+        $req->execute([$nom, $prenom, $pseudo, $id]);
     }
 
-
-    // All methods used for the login authentification
-    public function getPseudo($pseudo){
-        $req = $this->bd->prepare("SELECT * FROM membre WHERE pseudo=?");
-        $req->execute([$pseudo]);
-        return $req->fetchAll(PDO::FETCH_OBJ);
+    public function updatePerso($email, $newpass, $id){
+        $req = $this->bd->prepare("UPDATE membre SET email=?, pass=? WHERE idMembre=?");
+        $req->execute([$email, $newpass, $id]);
     }
+
 }
 
 ?>

@@ -15,14 +15,13 @@
                 <a class="navbar-brand" href="#">Tatasiaka</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
                 <li class="active"><a href="#">Accueil</a></li>
                 <li><a href="index.php?action=list">Membre</a></li>
                 <li><a href="#">Publication</a></li>
                 <li><a href="#">Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href=""><?= $_SESSION["pseudo"] ?></a></li>
+                <li><a href="index.php?action=update"><?= $_SESSION["pseudo"] ?></a></li>
                 <li><a href="index.php?action=logout">Se deconnecter </a></li>
             </ul>
         </div>
