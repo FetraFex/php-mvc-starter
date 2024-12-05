@@ -21,8 +21,8 @@
             <li><a href="#">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php?action=login">Se connecter</a></li>
-            <li><a href="index.php?action=register ">S'inscrire</a></li>
+            <li><a href="">Se connecter</a></li>
+            <li><a href="http://localhost/Rencontre/">S'inscrire</a></li>
           </ul>
         </div>
       </nav>

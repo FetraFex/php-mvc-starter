@@ -1,14 +1,22 @@
 <?php
 class membre
 {
-    public function enregistrer($nom, $prenom, $pseudo, $email, $pass1, $pass2)
+    public function index(){
+        include("views/register-view.php");
+    }
+
+    public function accueil(){
+        include("views/accueil-view.php");
+    }
+
+    public function enregistrer()
     {
-        $nom = htmlspecialchars(trim($nom));
-        $prenom = htmlspecialchars(trim($prenom));
-        $pseudo = htmlspecialchars(trim($pseudo));
-        $email = htmlspecialchars(trim($email));
-        $pass1 = htmlspecialchars(trim($pass1));
-        $pass2 = htmlspecialchars(trim($pass2));
+        $nom = htmlspecialchars(trim($_POST["nom"]));
+        $prenom = htmlspecialchars(trim($_POST["prenom"]));
+        $pseudo = htmlspecialchars(trim($_POST["pseudo"]));
+        $email = htmlspecialchars(trim($_POST["email"]));
+        $pass1 = htmlspecialchars(trim($_POST["pass1"]));
+        $pass2 = htmlspecialchars(trim($_POST["pass2"]));
         if ($nom != "" && $prenom != "" && $pseudo != "" && $email != "" && $pass1 != "" && $pass2 != "") {
             require_once("models/membre_model.php");
             $mm = new membre_model();
@@ -23,7 +31,7 @@ class membre
                         $_SESSION["email"] = $mm->selectOne($pseudo)[0]->email;
                         $_SESSION["pass"] = $mm->selectOne($pseudo)[0]->pass;
                         $_SESSION["idMembre"] = $mm->selectOne($pseudo)[0]->idMembre;
-                        header("location:index.php?action=accueil");
+                        header("location:http://localhost/Rencontre/membre/accueil/".$mm->selectOne($pseudo)[0]->pseudo);
                     } else {
                         header("location:index.php?action=register&retour=pass");
                     }

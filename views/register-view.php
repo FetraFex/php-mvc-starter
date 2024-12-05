@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="publics/css/bootstrap.css">
-    <link rel="stylesheet" href="publics/css/register.css">
+    <link rel="stylesheet" href="http://localhost/Rencontre/publics/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/Rencontre/publics/css/register.css">
 </head>
 
 <body>
     <div class="container">
-        <form action="index.php?action=register-membre" method="post">
+        <form action="http://localhost/Rencontre/membre/enregistrer" method="post">
             <h1>Inscription</h1>
             <div class="form-group">
                 <label>Nom</label>
