@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tatasiak.mg</title>
-    <link rel="stylesheet" href="publics/css/bootstrap.css">
-    <link rel="stylesheet" href="publics/css/update.css">
+    <link rel="stylesheet" href="http://localhost/Rencontre/publics/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/Rencontre/publics/css/update.css">
 </head>
 
 <body>
@@ -18,12 +18,11 @@
             <ul class="nav navbar-nav">
                 <li><a href="#">Accueil</a></li>
                 <li><a href="index.php?action=list">Membre</a></li>
-                <li><a href="#">Publication</a></li>
                 <li><a href="#">Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href=""><?= $_SESSION["pseudo"] ?></a></li>
-                <li><a href="index.php?action=logout">Se deconnecter </a></li>
+                <li><a href="#">Mety</a></li>
+                <li><a href="index.php?action=logout">Se deconnecter</a></li>
             </ul>
         </div>
     </nav>
@@ -31,31 +30,31 @@
         <div class="container-fluid full-height">
             <div class="row full-height">
                 <div class="col-md-3 bg-primary text-white full-height">
-                    <img class="img img-responsive" src="publics/image/default-profile.png" alt="">
+                    <img class="img img-responsive" src="http://localhost/Rencontre/publics/image/default-profile.png" alt="">
                 </div>
                 <div class="col-md-9 bg-success text-white full-height">
-                    <form action="index.php?action=update-membre" method="post">
-                        <h2>Modifier vos informations</h2>
+                    <form action="http://localhost/Rencontre/membre/modifierInfo/" method="post">
+                    <h2>Modifier vos informations</h2>
                         <div class="form-group">
                             <label>Nom</label>
-                            <input type="text" class="form-control" name="nom" value="<?= $myinfo[0]->nom?>">
+                            <input type="text" class="form-control" name="nom" value="<?= $myinfo[0]->nom ?>">
                         </div>
                         <div class="form-group">
                             <label>Prénom</label>
-                            <input type="text" class="form-control" name="prenom" value="<?=$myinfo[0]->prenom?>">
+                            <input type="text" class="form-control" name="prenom" value="<?= $myinfo[0]->prenom ?>">
                         </div>
                         <div class="form-group">
                             <label>Pseudo</label>
-                            <input type="text" class="form-control" name="pseudo" value="<?=$myinfo[0]->pseudo?>">
+                            <input type="text" class="form-control" name="pseudo" value="<?= $myinfo[0]->pseudo ?>">
                         </div>
                         <button type="submit" class="btn btn-default" name="btnChangeInfo">Modifier</button>
                     </form>
                     <hr>
-                    <form action="index.php?action=update-perso" method="post">
+                    <form action="http://localhost/Rencontre/membre/modifierInfoPerso" method="post">
                         <h2>Modifier vos informations personnelles</h2>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" name="email" value="<?=$myinfo[0]->email?>">
+                            <input type="email" class="form-control" name="email" value="<?= $myinfo[0]->email ?>">
                         </div>
                         <div class="form-group">
                             <label for="pwd">Votre ancien mot de passe</label>

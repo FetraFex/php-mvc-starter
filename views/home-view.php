@@ -21,8 +21,8 @@
             <li><a href="#">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Se connecter</a></li>
-            <li><a href="http://localhost/Rencontre/">S'inscrire</a></li>
+            <li><a href="http://localhost/Rencontre/membre/se_connecter/">Se connecter</a></li>
+            <li><a href="http://localhost/Rencontre/membre/cree_un_compte/">S'inscrire</a></li>
           </ul>
         </div>
       </nav>

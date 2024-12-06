@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="publics/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/Rencontre/publics/css/bootstrap.css">
 </head>
 
 <body>
     <div class="container">
-        <form action="index.php?action=login-membre" method="post">
+        <form action="http://localhost/Rencontre/membre/connecter" method="post">
             <h1>Connexion</h1>
             <div class="form-group">
                 <label for="pseudo">Votre pseudo</label>

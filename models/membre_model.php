@@ -42,6 +42,12 @@ class membre_model{
         return $req->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function getProfil($id){
+        $req = $this->bd->prepare("SELECT * FROM membre WHERE idMembre=?");
+        $req->execute([$id]);
+        return $req->fetchAll(PDO::FETCH_OBJ);
+    }
+
     // Update Methods
     public function updateInfo($nom, $prenom, $pseudo, $id){
         $req = $this->bd->prepare("UPDATE membre SET nom=?, prenom=?, pseudo=? WHERE idMembre=?");

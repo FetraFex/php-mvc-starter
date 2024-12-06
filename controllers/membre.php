@@ -1,12 +1,45 @@
 <?php
 class membre
 {
-    public function index(){
+    public function cree_un_compte()
+    {
         include("views/register-view.php");
     }
 
-    public function accueil(){
-        include("views/accueil-view.php");
+    public function se_connecter()
+    {
+        include("views/login-view.php");
+    }
+
+    public function accueil()
+    {
+        if (isset($_SESSION["pseudo"])) {
+            include("views/accueil-view.php");
+        } else {
+            header("location:http://localhost/Rencontre/");
+        }
+    }
+
+    public function liste()
+    {
+        require_once("models/membre_model.php");
+        $mm = new membre_model();
+        include("views/list-view.php");
+    }
+
+    public function mon_profil()
+    {
+        $id = $_SESSION["idMembre"];
+        require_once("models/membre_model.php");
+        $mm = new membre_model();
+        $myinfo = $mm->getProfil($id);
+        include("views/update-view.php");
+    }
+
+    public function deconnexion()
+    {
+        session_destroy();
+        header("location:http://localhost/Rencontre/");
     }
 
     public function enregistrer()
@@ -31,7 +64,7 @@ class membre
                         $_SESSION["email"] = $mm->selectOne($pseudo)[0]->email;
                         $_SESSION["pass"] = $mm->selectOne($pseudo)[0]->pass;
                         $_SESSION["idMembre"] = $mm->selectOne($pseudo)[0]->idMembre;
-                        header("location:http://localhost/Rencontre/membre/accueil/".$mm->selectOne($pseudo)[0]->pseudo);
+                        header("location:http://localhost/Rencontre/membre/accueil/");
                     } else {
                         header("location:index.php?action=register&retour=pass");
                     }
@@ -46,10 +79,10 @@ class membre
         }
     }
 
-    public function connecter($pseudo, $pass)
+    public function connecter()
     {
-        $pseudo = htmlspecialchars(trim($pseudo));
-        $pass = htmlspecialchars(trim($pass));
+        $pseudo = htmlspecialchars(trim($_POST["pseudo"]));
+        $pass = htmlspecialchars(trim($_POST["pass"]));
 
         if ($pseudo != "" && $pass != "") {
             require_once("models/membre_model.php");
@@ -63,7 +96,7 @@ class membre
                     $_SESSION["email"] = $mm->selectOne($pseudo)[0]->email;
                     $_SESSION["pass"] = $mm->selectOne($pseudo)[0]->pass;
                     $_SESSION["idMembre"] = $mm->selectOne($pseudo)[0]->idMembre;
-                    header("location:index.php?action=accueil");
+                    header("location:http://localhost/Rencontre/membre/accueil/");
                 } else {
                     echo "MDP incorrect";
                 }
@@ -75,37 +108,46 @@ class membre
         }
     }
 
-    public function modifierInfo($nom, $prenom, $pseudo, $id)
+    public function modifierInfo()
     {
-        $nom = htmlspecialchars(trim($nom));
-        $prenom = htmlspecialchars(trim($prenom));
-        $pseudo = htmlspecialchars(trim($pseudo));
+        $nom = htmlspecialchars(trim($_POST["nom"]));
+        $prenom = htmlspecialchars(trim($_POST["prenom"]));
+        $pseudo = htmlspecialchars(trim($_POST["pseudo"]));
+        $id = $_SESSION["idMembre"];
 
         if ($nom != "" && $prenom != "" && $pseudo != "") {
             require_once("models/membre_model.php");
             $mm = new membre_model();
-            $mm->updateInfo($nom, $prenom, $pseudo, $id);
+            if ($mm->verifyPseudo($pseudo) == 0) {
+                $mm->updateInfo($nom, $prenom, $pseudo, $id);
+            } else {
+                echo "Ce pseudo a été déjà pris";
+            }
             $_SESSION["nom"] = $nom;
             $_SESSION["prenom"] = $prenom;
             $_SESSION["pseudo"] = $pseudo;
-            header("location:index.php?action=update");
+            header("location:http://localhost/Rencontre/membre/mon_profil/");
         }
     }
 
-    public function modifierInfoPerso($pseudo, $pass, $email, $newpass1, $newpass2, $id)
+    public function modifierInfoPerso()
     {
-        $email = htmlspecialchars(trim($email));
-        $pass = htmlspecialchars(trim($pass));
-        $newpass1 = htmlspecialchars(trim($newpass1));
-        $newpass2 = htmlspecialchars(trim($newpass2));
+
+
+        $email = htmlspecialchars(trim($_POST["email"]));
+        $pass = htmlspecialchars(trim($_POST["pass"]));
+        $newpass1 = htmlspecialchars(trim($_POST["newpass1"]));
+        $newpass2 = htmlspecialchars(trim($_POST["newpass2"]));
+        $id = $_SESSION["idMembre"];
+        $pseudo = $_SESSION["pseudo"];
 
         if ($email != "" && $pass != "" && $newpass1 != "" && $newpass2 && $id != "") {
             require_once("models/membre_model.php");
             $mm = new membre_model();
             if (sha1($pass) == $mm->selectOne($pseudo)[0]->pass) {
                 if ($newpass1 == $newpass2) {
-                    $mm->updatePerso($email, sha1($newpass1), $id);
-                    header("location:index.php?action=update");
+                        $mm->updatePerso($email, sha1($newpass1), $id);
+                        header("location:http://localhost/Rencontre/membre/mon_profil/");
                 } else {
                     echo "Les nouveaux mot de passe ne sont pas identiques";
                 }
@@ -114,6 +156,6 @@ class membre
             }
         } else {
             echo "Veuillez remplir tous les champs";
-        } 
+        }
     }
 }
