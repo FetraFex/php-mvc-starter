@@ -80,7 +80,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Accueil</a></li>
                 <li><a href="http://localhost/Rencontre/membre/liste">Membre</a></li>
-                <li><a href="#">Message</a></li>
+                <li><a href="http://localhost/Rencontre/message/">Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://localhost/Rencontre/membre/mon_profil/"><?= $_SESSION["pseudo"] ?></a></li>

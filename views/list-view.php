@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tatasiak.mg</title>
-    <link rel="stylesheet" href="publics/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/Rencontre/publics/css/bootstrap.css">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                 $data = $mm->selectAll();
                 foreach ($data as $d) {
                     echo "<div class='col-lg-2'>
-                <img src='publics/image/default-profile.png' alt='' class='img img-responsive'>
+                <img src='http://localhost/Rencontre/publics/image/default-profile.png' alt='' class='img img-responsive'>
                 <h3>".$d->pseudo."</h3>
                 <a href='index.php?action=profil&pseudo=".$d->pseudo."'>Voir profil</a>
             </div>";
