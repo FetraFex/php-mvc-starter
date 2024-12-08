@@ -82,7 +82,7 @@
                 <li><a href="http://localhost/Rencontre/membre/liste">Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://localhost/Rencontre/membre/mon_profil/"><?= $_SESSION["pseudo"] ?></a></li>
+                <li><a href="http://localhost/Rencontre/membre/mon_profil/" id="myid" data-myid="<?= $_SESSION["idMembre"]?>"><?= $_SESSION["pseudo"] ?></a></li>
                 <li><a href="http://localhost/Rencontre/membre/deconnexion/">Se deconnecter </a></li>
             </ul>
         </div>
@@ -98,115 +98,29 @@
                             <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
                             <h4 style="margin-left:7%">Pseudo</h4>
                         </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 bg-success full" style="display:flex;flex-direction:column;">
-                <div class="container message" style="height:60vh;background-color:white:border-bottom: 1px solid black;overflow-y:scroll">
-                    <div class="container" style="width:100%;display:flex;justify-content:flex-start;margin-bottom:5px">
-                        <div style="width:50%;background-color:blue;padding:18px 20px;border-radius:20px;color:white;font-weight:bold">qdgqgqdg</div>
-                    </div>
-                    <div class="container" style="width:100%;display:flex;justify-content:flex-start;margin-bottom:5px">
-                        <div style="width:50%;background-color:blue;padding:18px 20px;border-radius:20px;color:white;font-weight:bold">qdgqgqdg</div>
-                    </div>
-                    <div class="container" style="width:100%;display:flex;justify-content:flex-start;margin-bottom:5px">
-                        <div style="width:50%;background-color:blue;padding:18px 20px;border-radius:20px;color:white;font-weight:bold">qdgqgqdg</div>
-                    </div>
-                    <div class="container" style="width:100%;display:flex;justify-content:flex-start;margin-bottom:5px">
+                <div class="container message">
+                    <h4 class="pseudo">Pseudo</h4>
+                </div>
+                <div class="container message container-message" style="height:60vh;background-color:white:border-bottom: 1px solid black;overflow-y:scroll">
+                    <div class="container" style="width:100%;display:flex;justify-content:flex-end;margin-bottom:5px">
                         <div style="width:50%;background-color:blue;padding:18px 20px;border-radius:20px;color:white;font-weight:bold">qdgqgqdg</div>
                     </div>
                 </div>
                 <div class="container message">
                     <form action="http://localhost/Rencontre/publication/message" method="post">
                         <div style="display:flex;">
-                            <textarea name="descri" id="" style="flex:1 auto;border-radius:20px;padding:20px 15px;"></textarea>
-                        </div>
-                        <div class="row" style="margin-top:20px;">
-                            <div class="container" style="width:100%">
-                                <button class="pub" type="submit">message</button>
-                            </div>
+                            <textarea name="message" id="message" style="flex:1 auto;border-radius:20px;padding:20px 15px;"></textarea>
                         </div>
                     </form>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="container" style="width:100%">
+                            <button class="pub" id="send">message</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-3 bg-success full">
@@ -217,17 +131,27 @@
                 <div class="container" style="border-radius:30px; background-color:white; height:59.3vh;overflow-y:hidden;width:100%;margin-top:10%">
                     <h4>Membres</h4>
                     <div style="overflow-y:scroll;height:100%">
-                        <div style="display:flex;align-items:center">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
+                        <?php
+                            $data = $mm->selectAll();
+                            foreach ($data as $d) {
+                                if ($_SESSION["pseudo"] != $d->pseudo){
+                                    echo '<div style="display:flex;align-items:center" data-id='.$d->idMembre.' class="membre">
+                                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
+                                            <h4 style="margin-left:7%" class="interlocuteur">'.$d->pseudo.'</h4>
+                                        </div>';
+                                    }
+                                } 
+                        ?>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="http://localhost/Rencontre/publics/js/jquery-3.7.1.min.js"></script>
     <script src="http://localhost/Rencontre/publics/js/bootstrap.js"></script>
+    <script src="http://localhost/Rencontre/publics/js/sendmessage.js"></script>
 </body>
 
 </html>
