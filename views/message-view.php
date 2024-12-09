@@ -77,9 +77,9 @@
                 <a class="navbar-brand" href="#">Tatasiaka</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Accueil</a></li>
+                <li><a href="#">Accueil</a></li>
                 <li><a href="http://localhost/Rencontre/membre/liste">Membre</a></li>
-                <li><a href="http://localhost/Rencontre/membre/liste">Message</a></li>
+                <li class="active"><a href="http://localhost/Rencontre/membre/liste">Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://localhost/Rencontre/membre/mon_profil/" id="myid" data-myid="<?= $_SESSION["idMembre"]?>"><?= $_SESSION["pseudo"] ?></a></li>
@@ -103,12 +103,10 @@
             </div>
             <div class="col-sm-6 bg-success full" style="display:flex;flex-direction:column;">
                 <div class="container message">
-                    <h4 class="pseudo">Pseudo</h4>
+                    <h4 class="pseudo">Messagerie</h4>
                 </div>
-                <div class="container message container-message" style="height:60vh;background-color:white:border-bottom: 1px solid black;overflow-y:scroll">
-                    <div class="container" style="width:100%;display:flex;justify-content:flex-end;margin-bottom:5px">
-                        <div style="width:50%;background-color:blue;padding:18px 20px;border-radius:20px;color:white;font-weight:bold">qdgqgqdg</div>
-                    </div>
+                <div class="container message container-message" style="height:60vh;background-color:white;border-bottom: 1px solid black;overflow-y:scroll">
+ 
                 </div>
                 <div class="container message">
                     <form action="http://localhost/Rencontre/publication/message" method="post">
@@ -136,7 +134,7 @@
                             foreach ($data as $d) {
                                 if ($_SESSION["pseudo"] != $d->pseudo){
                                     echo '<div style="display:flex;align-items:center" data-id='.$d->idMembre.' class="membre">
-                                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
+                                            <img src="http://localhost/Rencontre/publics/image/'. $d->pdp.'" alt="" class="img img-responsive" style="object-fit:cover;width:65px;height:65px;border-radius:50%">
                                             <h4 style="margin-left:7%" class="interlocuteur">'.$d->pseudo.'</h4>
                                         </div>';
                                     }

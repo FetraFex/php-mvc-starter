@@ -50,21 +50,36 @@ class membre
         $email = htmlspecialchars(trim($_POST["email"]));
         $pass1 = htmlspecialchars(trim($_POST["pass1"]));
         $pass2 = htmlspecialchars(trim($_POST["pass2"]));
+        $fileName = basename($_FILES['pdp']['name']);
+        $targetDir = __DIR__ . "/../publics/image/";
+        $targetFilePath = $targetDir . $fileName;
+        $fileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
+
+        // Check file type
+        $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
         if ($nom != "" && $prenom != "" && $pseudo != "" && $email != "" && $pass1 != "" && $pass2 != "") {
             require_once("models/membre_model.php");
             $mm = new membre_model();
             if ($mm->verifyPseudo($pseudo) == 0) {
                 if ($mm->verifyEmail($email) == 0) {
                     if ($pass1 == $pass2) {
-                        $pass1 = sha1($pass1);
-                        $mm->save($nom, $prenom, $pseudo, $email, $pass1);
-                        $_SESSION["nom"] = $mm->selectOne($pseudo)[0]->nom;
-                        $_SESSION["prenom"] = $mm->selectOne($pseudo)[0]->prenom;
-                        $_SESSION["pseudo"] = $mm->selectOne($pseudo)[0]->pseudo;
-                        $_SESSION["email"] = $mm->selectOne($pseudo)[0]->email;
-                        $_SESSION["pass"] = $mm->selectOne($pseudo)[0]->pass;
-                        $_SESSION["idMembre"] = $mm->selectOne($pseudo)[0]->idMembre;
-                        header("location:http://localhost/Rencontre/membre/accueil/");
+                        if (in_array($fileType, $allowedTypes)) {
+                            if (move_uploaded_file($_FILES['pdp']['tmp_name'], $targetFilePath)) {
+                                $pass1 = sha1($pass1);
+                                $pdp = ($fileName != "") ? $fileName : null;
+                                $mm->save($nom, $prenom, $pseudo, $email, $pass1, $pdp);
+                                $_SESSION["nom"] = $mm->selectOne($pseudo)[0]->nom;
+                                $_SESSION["prenom"] = $mm->selectOne($pseudo)[0]->prenom;
+                                $_SESSION["pseudo"] = $mm->selectOne($pseudo)[0]->pseudo;
+                                $_SESSION["email"] = $mm->selectOne($pseudo)[0]->email;
+                                $_SESSION["pass"] = $mm->selectOne($pseudo)[0]->pass;
+                                $_SESSION["idMembre"] = $mm->selectOne($pseudo)[0]->idMembre;
+                                $_SESSION["pdp"] = $mm->selectOne($pseudo)[0]->pdp;
+                                header("location:http://localhost/Rencontre/membre/accueil/");
+                            } else {
+                                echo "otrn tsy mety";
+                            }
+                        }
                     } else {
                         header("location:index.php?action=register&retour=pass");
                     }
@@ -96,6 +111,7 @@ class membre
                     $_SESSION["email"] = $mm->selectOne($pseudo)[0]->email;
                     $_SESSION["pass"] = $mm->selectOne($pseudo)[0]->pass;
                     $_SESSION["idMembre"] = $mm->selectOne($pseudo)[0]->idMembre;
+                    $_SESSION["pdp"] = $mm->selectOne($pseudo)[0]->pdp;
                     header("location:http://localhost/Rencontre/membre/accueil/");
                 } else {
                     echo "MDP incorrect";
@@ -146,8 +162,8 @@ class membre
             $mm = new membre_model();
             if (sha1($pass) == $mm->selectOne($pseudo)[0]->pass) {
                 if ($newpass1 == $newpass2) {
-                        $mm->updatePerso($email, sha1($newpass1), $id);
-                        header("location:http://localhost/Rencontre/membre/mon_profil/");
+                    $mm->updatePerso($email, sha1($newpass1), $id);
+                    header("location:http://localhost/Rencontre/membre/mon_profil/");
                 } else {
                     echo "Les nouveaux mot de passe ne sont pas identiques";
                 }

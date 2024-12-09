@@ -11,7 +11,12 @@
 
         public function post($pseudo, $descri, $imgsrc, $date){
             $req = $this->bd->prepare("INSERT INTO publication(auteur, descri, img_src, date) VALUES(?,?,?,?)");
-            $req->execute([$pseudo, $descri, $imgsrc, $date])
+            $req->execute([$pseudo, $descri, $imgsrc, $date]);
+        }
+
+        public function getPosts(){
+            $req = $this->bd->query("SELECT * FROM publication");
+            return $req->fetchAll(PDO::FETCH_OBJ);
         }
 }
 ?>

@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <form action="http://localhost/Rencontre/membre/enregistrer" method="post">
+        <form action="http://localhost/Rencontre/membre/enregistrer" method="post" enctype="multipart/form-data">
             <h1>Inscription</h1>
             <div class="form-group">
                 <label>Nom</label>
@@ -37,33 +37,12 @@
                 <label for="pwd">Confirmer votre mot de passe</label>
                 <input type="password" class="form-control" name="pass2">
             </div>
+            <div class="form-group">
+                <label for="pdp"></label>
+                <input type="file" class="form-control" name="pdp">
+            </div>
 
             <button type="submit" class="btn btn-default" name="btnRegister">S'inscrire</button>
-            <?php
-            if (isset($_GET['retour'])) {
-                if ($_GET["retour"] == "vide") {
-                    echo "<div class='alert alert-danger'>
-                    Veuillez remplir tous les champs !
-                 </div>";
-                }
-                if ($_GET["retour"] == "pseudo") {
-                    echo "<div class='alert alert-danger'>
-                    Le pseudo est déja utilisé !
-                 </div>";
-                }
-                if ($_GET["retour"] == "email") {
-                    echo "<div class='alert alert-danger'>
-                    Cette adresse email est déja utilisé !
-                 </div>";
-                }
-                if ($_GET["retour"] == "pass") {
-                    echo "<div class='alert alert-danger'>
-                    Les mots de passe doivent être identiques !
-                 </div>";
-                }
-            }
-            ?>
-
         </form>
     </div>
 </body>

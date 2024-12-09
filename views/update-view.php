@@ -30,7 +30,7 @@
         <div class="container-fluid full-height">
             <div class="row full-height">
                 <div class="col-md-3 bg-primary text-white full-height">
-                    <img class="img img-responsive" src="http://localhost/Rencontre/publics/image/default-profile.png" alt="">
+                    <img class="img img-responsive" src="<?="http://localhost/Rencontre/publics/image/". $_SESSION["pdp"]?>" style="width:100%;height:300px; border-radius:50%;object-fit:cover" alt="">
                 </div>
                 <div class="col-md-9 bg-success text-white full-height">
                     <form action="http://localhost/Rencontre/membre/modifierInfo/" method="post">

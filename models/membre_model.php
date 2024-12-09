@@ -9,9 +9,9 @@ class membre_model{
         }
     }
 
-    public function save($nom, $prenom, $pseudo, $email, $pass){
-        $req = $this->bd->prepare("INSERT INTO membre(nom, prenom, pseudo, email, pass) VALUES (?,?,?,?,?)");
-        $req->execute([$nom, $prenom, $pseudo, $email, $pass]);
+    public function save($nom, $prenom, $pseudo, $email, $pass, $pdp){
+        $req = $this->bd->prepare("INSERT INTO membre(nom, prenom, pseudo, email, pass, pdp) VALUES (?,?,?,?,?,?)");
+        $req->execute([$nom, $prenom, $pseudo, $email, $pass, $pdp]);
     }
 
     public function verifyPseudo($pseudo) {

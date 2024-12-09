@@ -83,8 +83,16 @@
                 <li><a href="http://localhost/Rencontre/message/">Message</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://localhost/Rencontre/membre/mon_profil/"><?= $_SESSION["pseudo"] ?></a></li>
-                <li><a href="http://localhost/Rencontre/membre/deconnexion/">Se deconnecter </a></li>
+                <div style="display:flex;align-items:center;">
+                    <div style="display: flex;align-items: center;">
+                        <?php
+                            $pdp = "http://localhost/Rencontre/publics/image/". $_SESSION["pdp"];
+                        ?>
+                        <img class="img img-responsive" src="<?=$pdp?>" alt="pdp" class="img img-responsive" style="width:50px;height:50px;border-radius:50px;object-fit:cover">
+                        <li><a href="http://localhost/Rencontre/membre/mon_profil/" id="auteur"><?= $_SESSION["pseudo"] ?></a></li>
+                        <li><a href="http://localhost/Rencontre/membre/deconnexion/">Se deconnecter </a></li>
+                    </div>
+                </div>
             </ul>
         </div>
     </nav>
@@ -115,24 +123,24 @@
             </div>
             <div class="col-sm-6 bg-success full">
                 <div class="container publier">
-                    <form action="http://localhost/Rencontre/publication/publier" method="post">
+                    <form action="http://localhost/Rencontre/publication/publier" id="pub-form" method="post" enctype="multipart/form-data">
                         <div style="display:flex;">
                             <div>
                                 <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
                             </div>
-                            <textarea name="descri" id="" style="flex:1 auto;border-radius:20px;padding:20px 15px;"></textarea>
+                            <textarea name="descri" id="description" style="flex:1 auto;border-radius:20px;padding:20px 15px;"></textarea>
                         </div>
                         <div class="row" style="margin-top:20px;">
                             <div class="col-sm-4">
-                                <button class="addimage"><input type="file" name="pubimg" id=""></button>
+                                <button class="addimage"><input type="file" name="pubimg" id="img_pub"></button>
                             </div>
                             <div class="col-sm-8">
-                                <button class="pub" type="submit">Publier</button>
+                                <button class="pub" id="publier" type="submit">Publier</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="container publier" style="flex: 1 auto;background:white; margin-top:20px;height:64vh;overflow-y:scroll;overflow-x:hidden;">
+                <div class="container publier" id="pub-container" style="flex: 1 auto;background:white; margin-top:20px;height:64vh;overflow-y:scroll;overflow-x:hidden;">
                     <div style="margin-bottom: 50px;">
                         <div>
                             <div style="display:flex; gap:20px">
@@ -169,6 +177,9 @@
     </div>
 
     <script src="http://localhost/Rencontre/publics/js/bootstrap.js"></script>
+    <script src="http://localhost/Rencontre/publics/js/jquery-3.7.1.min.js"></script>
+    <script src="http://localhost/Rencontre/publics/js/sendPost.js"></script>
+    <script src="http://localhost/Rencontre/publics/js/getAllPosts.js"></script>
 </body>
 
 </html>
