@@ -16,8 +16,8 @@ $(document).ready(function(){
                 console.log("Mbl vide")
             }
         },
-        error: function (e) {
-            alert("error")
+        error: function () {
+            alert("error be")
         }
     })
 })
