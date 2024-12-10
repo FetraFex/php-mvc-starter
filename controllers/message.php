@@ -37,3 +37,12 @@ if (isset($_POST["getmessage"])) {
     $data = $mm->getMessage($_POST["myid"], $_POST["id"]);
     echo json_encode($data);
 }
+
+if (isset($_POST["getConversation"])) {
+    $myid = $_POST["myid"];
+    require_once("../models/lastmessage_model.php");
+    $lmm = new lastmessage_model();
+    $data = $lmm->getConversation($myid);
+   
+    echo json_encode($data);
+}

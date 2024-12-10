@@ -67,6 +67,10 @@
         border: none;
         font-weight: bold;
     }
+
+    .conversation{
+        background-color: red;
+    }
 </style>
 </head>
 
@@ -94,10 +98,6 @@
                 <div class="container" style="border-radius:30px;background-color:white; height:76.5vh;overflow-y:hidden;width:100%;margin-top:10%">
                     <h4>Messages</h4>
                     <div style="overflow-y:scroll;height:73vh;" id="conversation-container">
-                        <div style="display:flex;align-items:center;height:7vh">
-                            <img src="http://localhost/Rencontre/publics/image/default-profile.png" alt="" class="img img-responsive" style="width:65px;">
-                            <h4 style="margin-left:7%">Pseudo</h4>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                             $data = $mm->selectAll();
                             foreach ($data as $d) {
                                 if ($_SESSION["pseudo"] != $d->pseudo){
-                                    echo '<div style="display:flex;align-items:center" data-id='.$d->idMembre.' class="membre">
+                                    echo '<div style="display:flex;align-items:center" data-id='.$d->idMembre.' >
                                             <img src="http://localhost/Rencontre/publics/image/'. $d->pdp.'" alt="" class="img img-responsive" style="object-fit:cover;width:65px;height:65px;border-radius:50%">
                                             <h4 style="margin-left:7%" class="interlocuteur">'.$d->pseudo.'</h4>
                                         </div>';
