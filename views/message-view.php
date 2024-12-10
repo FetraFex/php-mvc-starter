@@ -71,6 +71,7 @@
     .conversation{
         background-color: red;
     }
+
 </style>
 </head>
 
@@ -133,7 +134,7 @@
                             $data = $mm->selectAll();
                             foreach ($data as $d) {
                                 if ($_SESSION["pseudo"] != $d->pseudo){
-                                    echo '<div style="display:flex;align-items:center" data-id='.$d->idMembre.' >
+                                    echo '<div class="membre" style="display:flex;align-items:center" data-id='.$d->idMembre.'>
                                             <img src="http://localhost/Rencontre/publics/image/'. $d->pdp.'" alt="" class="img img-responsive" style="object-fit:cover;width:65px;height:65px;border-radius:50%">
                                             <h4 style="margin-left:7%" class="interlocuteur">'.$d->pseudo.'</h4>
                                         </div>';
