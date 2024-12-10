@@ -150,6 +150,7 @@
     <script src="http://localhost/Rencontre/publics/js/jquery-3.7.1.min.js"></script>
     <script src="http://localhost/Rencontre/publics/js/bootstrap.js"></script>
     <script src="http://localhost/Rencontre/publics/js/sendmessage.js"></script>
+    <script src="http://localhost/Rencontre/publics/js/getAllMessages.js"></script>
 </body>
 
 </html>
