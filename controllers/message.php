@@ -43,6 +43,15 @@ if (isset($_POST["getConversation"])) {
     require_once("../models/lastmessage_model.php");
     $lmm = new lastmessage_model();
     $data = $lmm->getConversation($myid);
+    
+    require_once("../models/membre_model.php");
+    $mm = new membre_model();
+
+    for($i=0; $i < count($data); $i++){
+        $idinterloc = ($myid == $data[$i]->idParticipant1)? $data[$i]->idParticipant2 : $data[$i]->idParticipant1; 
+        $data[$i]->interlocinfo = $mm->getProfil($idinterloc);
+    }
+
    
     echo json_encode($data);
 }

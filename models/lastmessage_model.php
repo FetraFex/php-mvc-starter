@@ -20,7 +20,7 @@ class lastmessage_model
 
     public function getConversation($myid)
     {
-        $req = $this->bd->prepare("SELECT * FROM derniersmessages WHERE idParticipant1=? OR idParticipant2=?");
+        $req = $this->bd->prepare("SELECT * FROM derniersmessages WHERE idParticipant1=? OR idParticipant2=? ORDER BY date DESC");
         $req->execute([$myid, $myid]);
         return $req->fetchAll(PDO::FETCH_OBJ);
     }

@@ -107,7 +107,7 @@
                     <h4 class="pseudo">Messagerie</h4>
                 </div>
                 <div class="container message container-message" style="height:60vh;background-color:white;border-bottom: 1px solid black;overflow-y:scroll">
- 
+
                 </div>
                 <div class="container message">
                     <form action="http://localhost/Rencontre/publication/message" method="post">
@@ -141,7 +141,6 @@
                                     }
                                 } 
                         ?>
-
                     </div>
                 </div>
             </div>
